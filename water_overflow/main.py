@@ -1,3 +1,4 @@
+import sys
 
 def hello_world():
     return 'Hello world'
@@ -40,3 +41,10 @@ def water_overflow(k, i, j):
 
     return glass[i][j].fill
 
+
+if __name__ == '__main__':
+    total_water = int(sys.argv[1])
+    find_row = int(sys.argv[2])
+    find_position = int(sys.argv[3])
+    level = water_overflow(total_water, find_row, find_position)
+    print('When pouring {}L of water, the level of glass in row {} at pos {} is {}ml'.format(total_water, find_row, find_position, level))

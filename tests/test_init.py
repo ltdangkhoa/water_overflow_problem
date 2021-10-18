@@ -7,8 +7,8 @@ class TestApp(unittest.TestCase):
         self.assertEqual(hello_world(), 'Hello world')
 
     def test_water_overflow(self):
-        #  self.assertEqual(water_overflow(7, 1, 0), 250)
-        #  self.assertEqual(water_overflow(15, 3, 2), 250)
+        #  self.assertEqual(water_overflow(7, 1, 0), 1)
+        #  self.assertEqual(water_overflow(15, 3, 2), 1)
         self.assertEqual(water_overflow(1, 2, 0), 62.5)
         self.assertEqual(water_overflow(1, 2, 1), 125)
 
