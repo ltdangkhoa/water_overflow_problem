@@ -2,6 +2,16 @@
 def hello_world():
     return 'Hello world'
 
+class Glass:
+    
+    def __init__(self, capacity, fill):
+        self.capacity = capacity
+        self.fill = fill
+
+    def isFull(self):
+        if self.fill >= self.capacity:
+            return True
+        return False
 
 def water_overflow(k, i, j):
     glass = [[0 for i in range(k)] for j in range(k)]
