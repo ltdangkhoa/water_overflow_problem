@@ -28,7 +28,7 @@ This problem is related to Pascal's triangle that could be drafted like below:
     ...
 ```
 
-I would be better to write some test cases:
+It would be better to write some test cases:
 
 - Pour 7 unit of water, glass at position 0 in row 1 must be 1
 
@@ -64,6 +64,6 @@ python -m unittest
 ### Running
 
 ```
-python water_overflow/main.py {1} {2} {3}
+python water_overflow/main.py {1} {2} {3} {4}
 ```
-with {1} is total water in Litres, {2}, {3} is the row & position of glass to find 
+with {1} is total water in Litres, {2}, {3} is the row & position of glass to find. To see simple illustrate of the glasses triangle, put the {4} to true
