@@ -2,26 +2,61 @@ import sys
 
 
 class Glass:
+    """
+    Attributes
+    ----------
+    capacity : int
+        the capacity of glass
+    fill : float
+        the level of water fill to the glass
+    (default 0)
 
-    def __init__(self, capacity, fill):
+    Methods
+    -------
+    isFull()
+        Check for the glass full filled
+
+    overFill()
+         Check for the glass over fill
+
+    """
+
+    def __init__(self, capacity, fill=0):
+        """
+        Parameters
+        ----------
+        capacity : int
+            the capacity of glass
+        fill : float
+            the level of water fill to the glass
+        (default 0)
+        """
         self.capacity = capacity
         self.fill = fill
 
     def __repr__(self):
         if self.isFull():
-            return "{0:^4}".format(str("\\▇/"))
+            return "{0:^4}".format("\\▇/")
         elif self.fill >= self.capacity/2:
-            return "{0:^4}".format(str("\\▅/"))
+            return "{0:^4}".format("\\▅/")
         elif self.fill > 0 and self.fill < self.capacity/2:
-            return "{0:^4}".format(str("\\▂/"))
-        return "{0:^4}".format(str("\\_/"))
+            return "{0:^4}".format("\\▂/")
+        return "{0:^4}".format("\\_/")
 
-    def isFull(self):
+    def isFull(self) -> bool:
+        """Check for the glass full filled
+
+        If the glass filled water is equal or greater than the capacity return True, otherwise return False
+        """
         if self.fill >= self.capacity:
             return True
         return False
 
     def overFill(self):
+        """Check for the glass over fill
+
+        Return the over fill of the glass
+        """
         return self.fill - self.capacity
 
 
@@ -30,10 +65,14 @@ def hello_world():
 
 
 def water_overflow(k):
+    """Method to calculate the k(L) of water pouring to Pascal's triangle of glasses
+
+    Return list of rows of glasses
+    """
     capacity = 250
     remain = int(k*1000)
     max_row = remain//capacity
-    glasses = [[Glass(capacity=capacity, fill=0) for i in range(j+1)] for j in range(max_row)]
+    glasses = [[Glass(capacity=capacity) for i in range(j+1)] for j in range(max_row)]
     glasses[0][0].fill = remain
     row = 0
     while row < max_row and remain > capacity:
@@ -60,7 +99,7 @@ if __name__ == '__main__':
 
     glasses = water_overflow(total_water)
     if illustrate:
-        row_reverse = len(glasses)
+        row_reverse = len(glasses) - 1
         for row in glasses:
             row_glasses = []
             for glass in row:
