@@ -56,10 +56,11 @@ To solve this problem in machine code, we could translate the total rows and tot
 
 
 ### Testing
-
 ```
+
 python -m unittest
 ```
+
 
 ### Running
 
@@ -67,3 +68,18 @@ python -m unittest
 python water_overflow/main.py {1} {2} {3} {4}
 ```
 with {1} is total water in Litres, {2}, {3} is the row & position of glass to find. To see simple illustrate of the glasses triangle, put the {4} to true
+
+
+### Example
+
+```
+python water_overflow/main.py 1.8 3 2 true
+               \▇/
+             \▇/ \▇/
+           \▇/ \▇/ \▇/
+         \▂/ \▅/ \▅/ \▂/
+       \_/ \_/ \_/ \_/ \_/
+     \_/ \_/ \_/ \_/ \_/ \_/
+   \_/ \_/ \_/ \_/ \_/ \_/ \_/
+When pouring 1.8L of water, the level of glass in row 3 at pos 2 is 143.75ml
+```
