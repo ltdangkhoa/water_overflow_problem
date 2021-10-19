@@ -9,12 +9,12 @@ class Glass:
 
     def __repr__(self):
         if self.isFull():
-            return str("|▇|")
+            return "{0:^4}".format(str("\\▇/"))
         elif self.fill >= self.capacity/2:
-            return str("|▅|")
+            return "{0:^4}".format(str("\\▅/"))
         elif self.fill > 0 and self.fill < self.capacity/2:
-            return str("|▂|")
-        return str("|_|")
+            return "{0:^4}".format(str("\\▂/"))
+        return "{0:^4}".format(str("\\_/"))
 
     def isFull(self):
         if self.fill >= self.capacity:
@@ -31,12 +31,12 @@ def hello_world():
 
 def water_overflow(k):
     capacity = 250
-    remain = k*1000
+    remain = int(k*1000)
     max_row = remain//capacity
     glasses = [[Glass(capacity=capacity, fill=0) for i in range(j+1)] for j in range(max_row)]
     glasses[0][0].fill = remain
     row = 0
-    while remain > capacity:
+    while row < max_row and remain > capacity:
         for _j in range(row):
             _i = row - 1
             if glasses[_i][_j].isFull():
@@ -53,7 +53,7 @@ def water_overflow(k):
 
 if __name__ == '__main__':
 
-    total_water = int(sys.argv[1])
+    total_water = float(sys.argv[1])
     find_row = int(sys.argv[2])
     find_position = int(sys.argv[3])
     illustrate = bool(sys.argv[4])
@@ -65,7 +65,7 @@ if __name__ == '__main__':
             row_glasses = []
             for glass in row:
                 row_glasses.append(str(glass))
-            print(" "*row_reverse, "".join(row_glasses))
+            print("{0:^2}".format(" ")*row_reverse, "".join(row_glasses))
             row_reverse -= 1
 
     find_level = glasses[find_row][find_position].fill
