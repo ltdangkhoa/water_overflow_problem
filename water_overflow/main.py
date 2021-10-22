@@ -71,22 +71,28 @@ def water_overflow(k):
     """
     capacity = 250
     remain = int(k*1000)
-    max_row = remain//capacity
-    glasses = [[Glass(capacity=capacity) for i in range(j+1)] for j in range(max_row)]
+    glasses = [[Glass(capacity=capacity)]]
     glasses[0][0].fill = remain
-    row = 0
-    while row < max_row and remain > capacity:
+    row = 1
+
+    still_flow = True
+    while still_flow is True:
+        still_flow = False
+        new_row = False
         for _j in range(row):
             _i = row - 1
             if glasses[_i][_j].isFull():
+                if new_row == False:
+                    next_row = [Glass(capacity=capacity) for _ in range(row + 1)]
+                    glasses.append(next_row)
+                    new_row = True
                 over_fill = glasses[_i][_j].overFill()
                 glasses[_i][_j].fill = capacity
                 glasses[_i + 1][_j].fill += over_fill / 2
                 glasses[_i + 1][_j + 1].fill += over_fill / 2
-                remain -= capacity
+                still_flow = True
 
         row += 1
-
     return glasses
 
 

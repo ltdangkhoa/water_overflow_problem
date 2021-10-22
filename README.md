@@ -73,13 +73,14 @@ with {1} is total water in Litres, {2}, {3} is the row & position of glass to fi
 ### Example
 
 ```
-python water_overflow/main.py 1.8 3 2 true
+python water_overflow/main.py 5.2 6 2 true
                \▇/
              \▇/ \▇/
            \▇/ \▇/ \▇/
-         \▂/ \▅/ \▅/ \▂/
-       \_/ \_/ \_/ \_/ \_/
-     \_/ \_/ \_/ \_/ \_/ \_/
-   \_/ \_/ \_/ \_/ \_/ \_/ \_/
-When pouring 1.8L of water, the level of glass in row 3 at pos 2 is 143.75ml
+         \▇/ \▇/ \▇/ \▇/
+       \▂/ \▇/ \▇/ \▇/ \▂/
+     \_/ \▅/ \▇/ \▇/ \▅/ \_/
+   \_/ \_/ \▅/ \▇/ \▅/ \_/ \_/
+ \_/ \_/ \_/ \▂/ \▂/ \_/ \_/ \_/
+When pouring 5.2L of water, the level of glass in row 6 at pos 2 is 210.9375ml
 ```
