@@ -18,6 +18,14 @@ class TestApp(unittest.TestCase):
         self.assertEqual(glasses[4][3].fill, 171.875)
         self.assertEqual(glasses[3][0].fill, 156.25)
 
+        glasses = water_overflow(5.2)
+        last_row = glasses[len(glasses) - 1]
+        have_water = False
+        for glass in last_row:
+            have_water = True if glass.fill > 0 else False
+
+        self.assertTrue(have_water)
+
     def test_glass(self):
         self.assertTrue(Glass(capacity=1, fill=1).isFull())
         self.assertFalse(Glass(capacity=250, fill=200).isFull())
